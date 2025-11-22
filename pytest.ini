@@ -1,0 +1,8 @@
+[pytest]
+testpaths = tests
+markers =
+    ui: UI тесты
+    api: API тесты
+    smoke: Smoke тесты
+    positive: Позитивные тесты
+    negative: Негативные тесты
