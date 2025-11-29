@@ -22,13 +22,18 @@ class APIClient:
         )
         return response
 # Поиск фильма по названию
+
     @allure.step("Поиск фильма по названию")
     def search_movies(self, query, page=1, limit=10, use_auth=True):
         """Создает запрос на поиск фильма по названию"""
         params = {'page': page, 'limit': limit, 'query': query}
         return self.request('GET', '/v1.4/movie/search', params, use_auth)
 # Поиск фильма по ID
+
     @allure.step("Поиск фильма по ID")
     def get_movie_by_id(self, movie_id, use_auth=True):
         """Создает запрос на поиск фильма по его ID"""
-        return self.request('GET', f'/v1.4/movie/{movie_id}', use_auth=use_auth)
+        return self.request(
+            'GET',
+            f'/v1.4/movie/{movie_id}',
+            use_auth=use_auth)

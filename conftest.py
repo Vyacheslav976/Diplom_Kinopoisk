@@ -13,15 +13,18 @@ def driver():
     yield driver
     driver.quit()
 
+
 @pytest.fixture
 def main_page(driver):
     """Фикстура для создания главной страницы"""
     return MainPage(driver, MAIN_URL)
 
+
 @pytest.fixture
 def film_page(driver):
     """Фикстура для создания страницы фильма"""
     return FilmPage(driver)
+
 
 @pytest.fixture
 def client():

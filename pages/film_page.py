@@ -43,7 +43,8 @@ class FilmPage:
     @allure.step("Проверка наличия 404 ошибки")
     def has_404_error(self):
         """Проверяет, есть ли на странице сообщение '404. Страница не найдена'"""
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//*[contains(text(), '404')]"))
-        )
+        WebDriverWait(
+            self.driver, 10).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[contains(text(), '404')]")))
         return "404. Страница не найдена" in self.driver.page_source

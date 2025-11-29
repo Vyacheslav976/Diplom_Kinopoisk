@@ -10,7 +10,7 @@ API_KEY = ''
 
 # Тестовые данные
 VALID_UI_FILMS = [
-    "ОНО 2",
+    "Оно 2",
     "Зеленая миля"
 ]
 VALID_API_FILMS = [

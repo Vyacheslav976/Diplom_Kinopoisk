@@ -8,7 +8,7 @@
 - [Установка библиотек](#установка-библиотек)
 
 ## Описание
-Финальная работа по ручному тестированию: <ссылка>
+[Финальная работа по ручному тестированию:](https://volkovvyacheslav.yonote.ru/share/b1184f55-b50b-417a-a89b-e180dfcd4c76)
 
 **Сайт: [www.kinopoisk.ru](https://www.kinopoisk.ru/)**
 
@@ -22,15 +22,17 @@
 pages - классы
 * `api_page.py`
 * `main_page.py` 
+* `film_page.py` 
 
 tests - тесты
 * `tests/test_api.py` 
-* `test_ui.py` 
+* `tests/test_ui.py`
 
 дополнительно
 * `pytest.ini` - маркеры для запуска pytest
 * `README.md` - отчет-инструкция к работе
 * `config.py` - конфигурации
+* `conftest.py` - фикстуры для создания теста
 * `requirements.txt` - зависимости
 
 ## Инструкция по работе с тестами
