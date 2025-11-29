@@ -6,7 +6,7 @@ SEARCH_TITLE = 'Кинопоиск — Все фильмы планеты'
 
 # API  тесты
 API_URL = 'https://api.kinopoisk.dev/'
-API_KEY = '5N3TENX-YZSM43W-PKXPAPQ-ASCF5YG'
+API_KEY = ''
 
 # Тестовые данные
 VALID_UI_FILMS = [
