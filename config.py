@@ -21,7 +21,9 @@ VALID_API_FILMS = [
 VALID_MOVIE_ID = 350
 INVALID_MOVIE_ID = 6
 FILM_PAGE = "Интерстеллар"
-FILM_PAGE_TITLE = 'Интерстеллар фильм, 2014, дата выхода трейлеры актеры отзывы описание на Кинопоиске'
+FILM_PAGE_TITLE = ('Интерстеллар фильм,'
+                   ' 2014, дата выхода трейлеры актеры'
+                   ' отзывы описание на Кинопоиске')
 EMPTY_QUERY = ""
 INVALID_QUERY = "7+7"
 SPECIAL_CHARS_QUERY = ":**(\"№%_)(*%!\"№_)*?:%%;!;%%:"

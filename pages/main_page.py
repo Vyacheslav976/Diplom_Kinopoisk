@@ -13,7 +13,8 @@ class MainPage:
         self.driver.maximize_window()
         self.close_communication_if_exists()
 
-    @allure.step("Проверка наличия и закрытие всплывающего окна, если оно появляется")
+    @allure.step("Проверка наличия и закрытие"
+                 " всплывающего окна, если оно появляется")
     def close_communication_if_exists(self, timeout=10):
         """
         Ожидает появления либо кнопки закрытия коммуникации,
@@ -21,8 +22,9 @@ class MainPage:
         """
         # Ждем появления любого из двух элементов
         element = WebDriverWait(self.driver, timeout).until(
-            EC.any_of(EC.presence_of_element_located((By.CSS_SELECTOR,
-                                                      '[aria-label="Закрыть коммуникацию"]')),
+            EC.any_of(EC.presence_of_element_located(
+                (By.CSS_SELECTOR, '[aria-label="Закрыть коммуникацию"]')
+            ),
                       # Поле поиска (индикатор нормальной страницы)
                       EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '[name="kp_query"]'))
@@ -34,13 +36,15 @@ class MainPage:
 
     @allure.step("Ожидание появления элементов на странице со значением value")
     def _wait_for_elements(self, by, value, multiple=False, timeout=10):
-        """Ожидает появления одного или нескольких элементов на странице по заданному значению локатора """
+        """Ожидает появления одного или нескольких
+         элементов на странице по заданному значению локатора """
         if multiple:
             elements = WebDriverWait(
                 self.driver, timeout).until(
                 EC.visibility_of_all_elements_located(
                     (by, value)))
-            with allure.step(f"Найдено{len(elements)} элементов по локатору: {value}"):
+            with allure.step(f"Найдено{len(elements)}"
+                             f" элементов по локатору: {value}"):
                 return elements
         else:
             element = WebDriverWait(
@@ -50,9 +54,11 @@ class MainPage:
             with allure.step(f"Элемент найден по локатору: {value}"):
                 return element
 
-    @allure.step("Получение текста со всех элементов страницы соотв. css_selector")
+    @allure.step("Получение текста со всех"
+                 " элементов страницы соотв. css_selector")
     def _get_element_texts(self, by, css_selector):
-        """Получает текст со всех элементов страницы по заданному методу и локатору и выводит список этих элементов """
+        """Получает текст со всех элементов страницы по
+        заданному методу и локатору и выводит список этих элементов """
         elements = self._wait_for_elements(by, css_selector, multiple=True)
         return [element.text for element in elements]
 
@@ -75,10 +81,13 @@ class MainPage:
     def get_search_results_count(self):
         """Возвращает число равное количеству найденных фильмов
          по результатам поиска из текстового сообщения элементов поиска"""
-        with allure.step("Ожидает появления элемента с классом .search_results_topText и извлекает из него текст"):
+        with allure.step("Ожидает появления элемента с"
+                         " классом .search_results_topText"
+                         " и извлекает из него текст"):
             results_text = self._wait_for_elements(
                 By.CSS_SELECTOR, ".search_results_topText").text
-        with allure.step("Поиск числа в results_text с помощью регулярного выражения"):
+        with allure.step("Поиск числа в results_text"
+                         " с помощью регулярного выражения"):
             match = re.search(r'результаты:\s*(\d+)', results_text)
         with allure.step("Обработка результата поиска"):
             if match:

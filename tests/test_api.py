@@ -1,6 +1,8 @@
 import pytest
 import allure
-from config import *
+from config import (VALID_API_FILMS, VALID_MOVIE_ID, EMPTY_QUERY,
+                    INVALID_QUERY, SPECIAL_CHARS_QUERY, RUSSIAN_NO_SPACES,
+                    INVALID_MOVIE_ID)
 
 
 @allure.story("API")
@@ -29,7 +31,8 @@ def test_get_movie_by_id(client):
 
     assert response.status_code == 200
     data = response.json()
-    assert data["id"] == VALID_MOVIE_ID, f" ID - {VALID_MOVIE_ID} не является валидным значением"
+    assert data["id"] == VALID_MOVIE_ID, \
+        f" ID - {VALID_MOVIE_ID} не является валидным значением"
     assert "name" in data
 
 

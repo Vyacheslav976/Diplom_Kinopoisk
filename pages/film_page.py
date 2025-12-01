@@ -12,7 +12,8 @@ class FilmPage:
 
     @allure.step("Переход на страницу фильма по ID: {film_id}")
     def go_to_film_page_by_id(self, film_id):
-        """Осуществляет переход на страницу фильма при кликании на картинку фильма"""
+        """Осуществляет переход на страницу фильма
+         при кликании на картинку фильма"""
         film_url = f"https://www.kinopoisk.ru/film/{film_id}/"
         self.driver.get(film_url)
         WebDriverWait(self.driver, 10).until(
@@ -35,14 +36,16 @@ class FilmPage:
 
     @allure.step("Проверка, что мы на странице фильма с ID: {film_id}")
     def is_on_film_page(self, film_id):
-        """Проверяет значение ID в URL страницы фильма при переходе на страницу фильма по заданному ID"""
+        """Проверяет значение ID в URL страницы
+         фильма при переходе на страницу фильма по заданному ID"""
         current_url = self.driver.current_url
         expected_pattern = f"/film/{film_id}"
         return expected_pattern in current_url
 
     @allure.step("Проверка наличия 404 ошибки")
     def has_404_error(self):
-        """Проверяет, есть ли на странице сообщение '404. Страница не найдена'"""
+        """Проверяет, есть ли на странице
+         сообщение '404. Страница не найдена'"""
         WebDriverWait(
             self.driver, 10).until(
             EC.presence_of_element_located(

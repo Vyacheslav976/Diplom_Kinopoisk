@@ -3,7 +3,7 @@ from pages.main_page import MainPage
 from pages.film_page import FilmPage
 from pages.api_client import APIClient
 from selenium import webdriver
-from config import *
+from config import MAIN_URL
 
 
 @pytest.fixture

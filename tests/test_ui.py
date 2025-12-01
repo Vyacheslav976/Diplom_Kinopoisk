@@ -1,7 +1,7 @@
-from time import sleep
 import pytest
 import allure
-from config import *
+from config import (TITLE, VALID_UI_FILMS, FILM_PAGE,
+                    FILM_PAGE_TITLE, FILM_PAGE_IDS, INVALID_MOVIE_ID)
 
 
 @allure.feature("Smoke")
@@ -31,9 +31,9 @@ def test_search_film_by_title(main_page, film_title):
         assert main_page.get_search_results_count(
         ) > 0, 'Не удалось получить список фильмов'
 
-    with allure.step(f"Получение списка найденных фильмов"):
-        assert film_title in main_page.find_films_titles(
-        ), "Фильм не найден в результатах поиска"
+    with allure.step("Получение списка найденных фильмов"):
+        assert film_title in main_page.find_films_titles(), \
+            "Фильм не найден в результатах поиска"
 
     with allure.step("Проверяет, что количество найденных фильмов больше 0"):
         film_titles = main_page.find_films_titles()
@@ -53,8 +53,9 @@ def test_empty_search(main_page, film_title):
                      f" {film_title}"):
         main_page.search_items_by_phrase(film_title)
 
-    with allure.step("Проверяет, что количество найденных фльмов 0"):
-        assert main_page.get_search_results_count() == 0, "Удалось получить список фильмов"
+    with allure.step("Проверяет, что количество найденных фильмов 0"):
+        assert main_page.get_search_results_count() == 0,  \
+                         "Удалось получить список фильмов"
 
 
 @allure.feature("Поиск")
@@ -91,7 +92,8 @@ def test_click_on_film_poster_with_id(film_page, film_id):
     with allure.step("Клик на обложку фильма"):
         film_page.click_on_film_poster_by_xpath(film_id)
 
-    with allure.step("Проверка, что произошел переход на страницу с постерами"):
+    with allure.step("Проверка, что произошел"
+                     " переход на страницу с постерами"):
         assert film_page.is_on_film_page(
             film_id), "Не произошел переход на страницу с постерами"
 

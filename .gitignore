@@ -178,3 +178,4 @@ allure-report/
 
 # Игнорирование папки .idea
 .idea/
+.flake8
